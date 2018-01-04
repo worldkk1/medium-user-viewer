@@ -1,0 +1,15 @@
+.center-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.ui.medium.button {
+  /* background-color: #fff; */
+  color: #333;
+}
+.medium.icon {
+  background-image: url(../../assets/img/Monogram.svg);
+}
