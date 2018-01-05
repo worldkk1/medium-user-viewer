@@ -6,17 +6,23 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { PublicationComponent } from './publication/publication.component';
+import { CallbackComponent } from './callback/callback.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'callback/:site', component: CallbackComponent},
+  {path: 'pub', component: PublicationComponent},
   {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PublicationComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
