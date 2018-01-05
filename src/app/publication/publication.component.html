@@ -1,3 +1,28 @@
-<p>
-  publication works!
-</p>
+<!-- <ul>
+  <li *ngFor="let pub of pubs">
+    {{pub.name}}
+  </li>
+</ul> -->
+<!-- {
+  "id":"2506ecfa972f",
+  "name":"The Creative Cafe",
+  "description":"A community for compulsive creators, their work and their stories. We tackle the creative process from end to end, which includes sharing our most personal and authentic tales. Nothing is off limits — fiction, poetry, memoir and more. New stories published every weekday.",
+  "url":"https://medium.com/the-creative-cafe",
+  "imageUrl":"https://cdn-images-1.medium.com/fit/c/400/400/1*YP9KllhHscozHx_VU7Xe6w.png"
+} -->
+<div class="ui link cards">
+  <div class="card" *ngFor="let pub of pubs" (click)="openPub($event, pub.url)">
+    <div class="image">
+      <img src="{{pub.imageUrl}}">
+    </div>
+    <div class="content">
+      <div class="header">{{pub.name}}</div>
+      <div class="meta">
+        {{pub.role}}
+      </div>
+      <div class="description">
+        {{pub.description}}
+      </div>
+    </div>
+  </div>
+</div>

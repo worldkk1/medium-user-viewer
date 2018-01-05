@@ -16,9 +16,10 @@ export class CallbackComponent implements OnInit {
         console.log('site: '+site);
         if (site == 'medium') {
           this.route.queryParams.subscribe((params: Params) => {
-              let code = params['code'];
-              console.log('code: '+code);
-              this.router.navigate(['pub']);
+              let authen_code = params['code'];
+              console.log('params: '+JSON.stringify(params));
+              localStorage.setItem('authen_code', authen_code);
+              this.router.navigate(['home']);
           });
         }
     });

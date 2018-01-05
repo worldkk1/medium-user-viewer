@@ -1,0 +1,17 @@
+<div *ngIf="isDataLoaded">
+  <div class="ui clearing segment">
+    <h3 class="ui right floated header">
+      <img [src]="userImg" class="ui circular Small image">
+      <div class="content">
+        {{name}}
+        <div class="sub header">{{username}}</div>
+      </div>
+      <!-- <span *ngIf="name">{{name}}</span>
+      <div class="sub header">marketplace</div> -->
+    </h3>
+  </div>
+
+  <div class="ui center aligned container">
+    <app-publication></app-publication>
+  </div>
+</div>

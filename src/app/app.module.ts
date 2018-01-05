@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PublicationComponent } from './publication/publication.component';
 import { CallbackComponent } from './callback/callback.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'callback/:site', component: CallbackComponent},
   {path: 'pub', component: PublicationComponent},
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     PublicationComponent,
-    CallbackComponent
+    CallbackComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
