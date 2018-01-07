@@ -38,7 +38,7 @@ export class PublicationComponent implements OnInit {
                 for (let i in this.pubsCon) {
                   let pub = resPubs.find(x => x.id == this.pubsCon[i].id);
                   Object.assign(pub, {role: this.pubsCon[i].role});
-                  console.log('pub: '+JSON.stringify(pub));
+                  // console.log('pub: '+JSON.stringify(pub));
                   dataPubs.push(pub);
                 }
               }
