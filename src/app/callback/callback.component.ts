@@ -16,10 +16,13 @@ export class CallbackComponent implements OnInit {
         // console.log('site: '+site);
         if (site == 'medium') {
           this.route.queryParams.subscribe((params: Params) => {
+            if (params['error']) {
+              this.router.navigate(['login']);
+            } else {
               let authen_code = params['code'];
-              // console.log('params: '+JSON.stringify(params));
               localStorage.setItem('authen_code', authen_code);
               this.router.navigate(['home']);
+            }
           });
         }
     });

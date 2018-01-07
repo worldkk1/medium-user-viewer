@@ -80,7 +80,8 @@ app.post('/api/medium/pub', function(req, res) {
   if (req.body) {
     var authen_code = req.body.authen_code;
     var user_id = req.body.user_id;
-    var pubsCon = [{id: '2506ecfa972f', role: 'test'}];
+    var pubsCon = [];
+    // var pubsCon = [{id: '2506ecfa972f', role: 'test'}]; // test
     var promises = [];
     console.log('userId: '+user_id);
     client.exchangeAuthorizationCode(authen_code, redirectURL, function (err, token) {

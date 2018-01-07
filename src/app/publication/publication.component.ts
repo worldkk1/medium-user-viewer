@@ -32,17 +32,17 @@ export class PublicationComponent implements OnInit {
               let resPubs = response.json().data;
               let dataPubs = [];
 
-              this.pubs = response.json().data; // all pubs, comment off below for filter pubs
-              // this.pubsCon = response.json().pubsCon;
-              // if (this.pubsCon) {
-              //   for (let i in this.pubsCon) {
-              //     let pub = resPubs.find(x => x.id == this.pubsCon[i].id);
-              //     Object.assign(pub, {role: this.pubsCon[i].role});
-              //     console.log('pub: '+JSON.stringify(pub));
-              //     dataPubs.push(pub);
-              //   }
-              // }
-              // this.pubs = dataPubs;
+              // this.pubs = response.json().data; // all pubs, comment off below for filter pubs
+              this.pubsCon = response.json().pubsCon;
+              if (this.pubsCon) {
+                for (let i in this.pubsCon) {
+                  let pub = resPubs.find(x => x.id == this.pubsCon[i].id);
+                  Object.assign(pub, {role: this.pubsCon[i].role});
+                  console.log('pub: '+JSON.stringify(pub));
+                  dataPubs.push(pub);
+                }
+              }
+              this.pubs = dataPubs;
               this.isPubsLoaded = true;
             }
           }
