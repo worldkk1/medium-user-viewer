@@ -7,7 +7,7 @@
 } -->
 <div *ngIf="!isPubsLoaded" class="ui active inline loader"></div>
 <div class="ui link cards" style="width: 81%; margin-left: auto; margin-right: auto;">
-  <div class="card" *ngFor="let pub of pubs" (click)="openPub($event, pub.url)">
+  <div class="ultra-violet card" *ngFor="let pub of pubs" (click)="openPub($event, pub.url)">
     <div class="image">
       <img src="{{pub.imageUrl}}">
     </div>
@@ -19,6 +19,19 @@
       <div class="description">
         {{pub.description}}
       </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="pubs?.length == 0" class="ui centered cards" style="margin-top: 20%;">
+  <div class="ultra-violet card">
+    <div class="content">
+      <div class="header">Opps!</div>
+      <div class="description">
+        Nothing to show, need some publications?
+      </div>
+    </div>
+    <div class="ui bottom attached button" (click)="openPub($event, 'https://medium.com/me/publications')">
+      Click here
     </div>
   </div>
 </div>
