@@ -3,19 +3,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import { NgSemanticModule } from 'ng-semantic';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PublicationComponent } from './publication/publication.component';
 import { CallbackComponent } from './callback/callback.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './common/auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'pub', component: PublicationComponent, canActivate: [AuthGuard]},
   {path: 'callback/:site', component: CallbackComponent},
-  {path: 'pub', component: PublicationComponent},
   {path: '**', redirectTo: ''}
 ];
 
@@ -31,9 +33,10 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgSemanticModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

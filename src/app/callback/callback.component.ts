@@ -13,11 +13,11 @@ export class CallbackComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((queryParams: Params) => {
         let site = queryParams['site'];
-        console.log('site: '+site);
+        // console.log('site: '+site);
         if (site == 'medium') {
           this.route.queryParams.subscribe((params: Params) => {
               let authen_code = params['code'];
-              console.log('params: '+JSON.stringify(params));
+              // console.log('params: '+JSON.stringify(params));
               localStorage.setItem('authen_code', authen_code);
               this.router.navigate(['home']);
           });

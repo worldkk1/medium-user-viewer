@@ -1,16 +1,27 @@
+<div *ngIf="!isDataLoaded || !isLogout" class="ui center aligned container">
+  <div class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+</div>
 <div *ngIf="isDataLoaded">
   <div class="ui clearing segment">
     <h3 class="ui right floated header">
-      <img [src]="userImg" class="ui circular Small image">
       <div class="content">
         {{name}}
         <div class="sub header">{{username}}</div>
       </div>
-      <!-- <span *ngIf="name">{{name}}</span>
-      <div class="sub header">marketplace</div> -->
+      <div class="ui inline dropdown">
+        <div class="text" (click)="openMenu()">
+          <img class="ui avatar image" [src]="userImg" style="vertical-align: -webkit-baseline-middle;">
+        </div>
+        <div class="menu" [ngClass]="isMenuOpened ? 'transition visible' : 'transition hidden'" [ngStyle]="{'display': isMenuOpened ? 'block' : 'none' }" style="left: -50px">
+          <div class="item" (click)="logout()">
+            Logout
+          </div>
+        </div>
+      </div>
     </h3>
   </div>
-
   <div class="ui center aligned container">
     <app-publication></app-publication>
   </div>

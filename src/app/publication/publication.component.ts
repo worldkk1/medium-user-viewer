@@ -11,6 +11,7 @@ import { contentHeaders } from '../common/headers';
 export class PublicationComponent implements OnInit {
   private pubs;
   private pubsCon;
+  isPubsLoaded: boolean = false;
 
   constructor(private http: Http) { }
 
@@ -21,7 +22,7 @@ export class PublicationComponent implements OnInit {
   listPub() {
     let authen_code = localStorage.getItem('authen_code');
     let user_id = localStorage.getItem('user_id');
-    console.log('user_id: '+user_id);
+    // console.log('user_id: '+user_id);
     let body = JSON.stringify({authen_code, user_id});
     if (user_id) {
       this.http.post('http://localhost:3000/api/medium/pub', body, { headers: contentHeaders })
@@ -42,6 +43,7 @@ export class PublicationComponent implements OnInit {
               //   }
               // }
               // this.pubs = dataPubs;
+              this.isPubsLoaded = true;
             }
           }
         );
