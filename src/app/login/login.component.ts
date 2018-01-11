@@ -28,9 +28,8 @@ export class LoginComponent implements OnInit {
         .subscribe(
           response => {
             // console.log('res:'+JSON.stringify(response.json()));
-            // this.http.get(response.json().url);
+            // console.log(response.json());
             window.location.href = response.json().url;
-            // this.router.navigate(['callback/medium']);
           },
           error => {
             // console.log('err: '+error.text());

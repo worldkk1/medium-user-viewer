@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
               this.name = response.json().name;
               this.userImg = response.json().imageUrl;
               this.username = response.json().username;
-              // console.log('response.json().imageUrl: '+response.json().imageUrl);
               this.isDataLoaded = true;
             }
           },
